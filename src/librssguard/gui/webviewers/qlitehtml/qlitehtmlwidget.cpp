@@ -316,7 +316,7 @@ void QLiteHtmlWidget::mouseMoveEvent(QMouseEvent* event) {
 
   htmlPos(event->pos(), &viewport_pos, &pos);
 
-  if (Globals::hasFlag(event->buttons(), Qt::MouseButton::LeftButton) && !m_draggedData.isNull() &&
+  if (Globals::hasFlag(event->buttons(), Qt::MouseButton::MiddleButton) && !m_draggedData.isNull() &&
       ((pos - m_dragStartPos).manhattanLength() >= QApplication::startDragDistance())) {
     startDataDrag(m_draggedData);
     m_draggedData.clear();
@@ -351,7 +351,7 @@ void QLiteHtmlWidget::mousePressEvent(QMouseEvent* event) {
 
   htmlPos(event->pos(), &viewport_pos, &pos);
 
-  if (event->button() == Qt::MouseButton::LeftButton) {
+  if (event->button() == Qt::MouseButton::MiddleButton) {
     m_dragStartPos = pos;
     QUrl href = m_documentContainer.linkAt(pos, viewport_pos);
 
