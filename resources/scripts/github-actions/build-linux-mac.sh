@@ -125,7 +125,18 @@ else
   otool -L "$prefix/Contents/MacOS/rssguard"
 
   # Deploy to DMG.
-  macdeployqt "$prefix" -dmg -verbose=2
+  macdeployqt "$prefix" -dmg -verbose=2 || true
+
+  if ! ls *.dmg 1> /dev/null 2>&1; then
+    echo "macdeployqt failed to create DMG. Wait a second and try again..."
+    sleep 5
+    macdeployqt "$prefix" -dmg -verbose=2 || true
+  fi
+
+  if ! ls *.dmg 1> /dev/null 2>&1; then
+    echo "macdeployqt failed to create DMG twice. Trying hdiutil manually..."
+    hdiutil create -volname "RSS Guard" -srcfolder "$prefix" -ov -format UDZO rssguard.dmg
+  fi
 
   otool -L "$prefix/Contents/Frameworks/librssguard.dylib"
   otool -L "$prefix/Contents/MacOS/rssguard"
