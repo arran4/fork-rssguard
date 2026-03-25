@@ -1657,16 +1657,16 @@ QUrl DocumentContainer::linkAt(QPointF document_pos, QPointF viewport_pos) const
   deepestChildAtPoint(m_document->root(), document_pos, viewport_pos, [&href](const litehtml::element::ptr& e) {
     const litehtml::element::ptr parent = e->parent();
 
-    if (parent && parent->tag() == litehtml::_a_) {
-      href = parent->get_attr("href");
+    if (e && e->tag() == litehtml::_a_) {
+      href = e->get_attr("href");
 
       if (href) {
         return true;
       }
     }
 
-    if (e && e->tag() == litehtml::_a_) {
-      href = e->get_attr("href");
+    if (parent && parent->tag() == litehtml::_a_) {
+      href = parent->get_attr("href");
 
       if (href) {
         return true;
