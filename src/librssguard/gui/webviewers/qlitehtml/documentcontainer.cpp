@@ -1665,6 +1665,14 @@ QUrl DocumentContainer::linkAt(QPointF document_pos, QPointF viewport_pos) const
       }
     }
 
+    if (e && e->tag() == litehtml::_a_) {
+      href = e->get_attr("href");
+
+      if (href) {
+        return true;
+      }
+    }
+
     return false; /*continue*/
   });
 
