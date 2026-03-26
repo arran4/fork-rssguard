@@ -51,10 +51,6 @@
    </item>
   </layout>
  </widget>
- <resources/>
- <connections/>
-</ui>
-
  <customwidgets>
   <customwidget>
    <class>MessageTextBrowser</class>
@@ -62,3 +58,6 @@
    <header>gui/messagetextbrowser.h</header>
   </customwidget>
  </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
