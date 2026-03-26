@@ -16,6 +16,8 @@ ItemDetails::ItemDetails(QWidget* parent) : QWidget(parent) {
   m_ui.m_txtDetails->viewport()->setAutoFillBackground(false);
   m_ui.m_txtDetails->setOpenLinks(false);
   m_ui.m_txtDetails->setTextInteractionFlags(Qt::LinksAccessibleByMouse | Qt::TextSelectableByMouse);
+  m_ui.m_txtDetails->setOpenLinks(false);
+  m_ui.m_txtDetails->setTextInteractionFlags(Qt::LinksAccessibleByMouse | Qt::TextSelectableByMouse);
 
   connect(m_ui.m_txtDetails, &QTextBrowser::anchorClicked, this, [](const QUrl& link) {
     qApp->web()->openUrlInExternalBrowser(link);
