@@ -37,7 +37,7 @@
     </widget>
    </item>
    <item>
-    <widget class="QTextBrowser" name="m_txtDetails">
+    <widget class="MessageTextBrowser" name="m_txtDetails">
      <property name="frameShape">
       <enum>QFrame::Shape::NoFrame</enum>
      </property>
@@ -54,3 +54,11 @@
  <resources/>
  <connections/>
 </ui>
+
+ <customwidgets>
+  <customwidget>
+   <class>MessageTextBrowser</class>
+   <extends>QTextBrowser</extends>
+   <header>gui/messagetextbrowser.h</header>
+  </customwidget>
+ </customwidgets>
